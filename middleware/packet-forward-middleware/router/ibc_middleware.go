@@ -189,7 +189,7 @@ func (im IBCMiddleware) OnRecvPacket(
 	err = json.Unmarshal([]byte(data.Memo), m)
 	if err != nil {
 		logger.Error("packetForwardMiddleware OnRecvPacket error parsing forward metadata", "error", err)
-		return newErrorAcknowledgement(fmt.Errorf("error parsing forward metadata: %w", err))
+		return newErrorAcknowledgement(fmt.Errorf("error parsing forward metadata"))
 	}
 
 	metadata := m.Forward
