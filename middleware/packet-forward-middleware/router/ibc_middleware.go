@@ -168,7 +168,7 @@ func (im IBCMiddleware) OnRecvPacket(
 	var data transfertypes.FungibleTokenPacketData
 	if err := transfertypes.ModuleCdc.UnmarshalJSON(packet.GetData(), &data); err != nil {
 		logger.Error("packetForwardMiddleware OnRecvPacketfailed to unmarshal packet data as FungibleTokenPacketData", "error", err)
-		return newErrorAcknowledgement(fmt.Errorf("failed to unmarshal packet data as FungibleTokenPacketData: %w", err))
+		return newErrorAcknowledgement(fmt.Errorf("failed to unmarshal packet data as FungibleTokenPacketData: %w", "non-deterministic reason redacted"))
 	}
 
 	logger.Debug("packetForwardMiddleware OnRecvPacket",
